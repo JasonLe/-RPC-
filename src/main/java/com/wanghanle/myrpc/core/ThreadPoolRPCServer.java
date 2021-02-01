@@ -14,21 +14,21 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/2/1 22:57
  * 线程池版
  */
-public class ThreadPoolRPCRPCServer implements RPCServer {
+public class ThreadPoolRPCServer implements RPCServer {
     private final ThreadPoolExecutor threadPool;
     private ServiceProvider serviceProvide;
 
-    public ThreadPoolRPCRPCServer(ServiceProvider serviceProvide) {
+    public ThreadPoolRPCServer(ServiceProvider serviceProvide) {
         threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(),
                 1000, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100));
         this.serviceProvide = serviceProvide;
     }
 
-    public ThreadPoolRPCRPCServer(ServiceProvider serviceProvide, int corePoolSize,
-                                  int maximumPoolSize,
-                                  long keepAliveTime,
-                                  TimeUnit unit,
-                                  BlockingQueue<Runnable> workQueue) {
+    public ThreadPoolRPCServer(ServiceProvider serviceProvide, int corePoolSize,
+                               int maximumPoolSize,
+                               long keepAliveTime,
+                               TimeUnit unit,
+                               BlockingQueue<Runnable> workQueue) {
 
         threadPool = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
         this.serviceProvide = serviceProvide;

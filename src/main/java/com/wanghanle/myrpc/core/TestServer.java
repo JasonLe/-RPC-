@@ -27,7 +27,7 @@ public class TestServer {
         serviceProvide.provideServiceInterface(blogService);
         serviceProvide.provideServiceInterface(bookService);
 
-        RPCServer RPCServer = new ThreadPoolRPCRPCServer(serviceProvide);
+        RPCServer RPCServer = new ThreadPoolRPCServer(serviceProvide);
         RPCServer.start(8888);
     }
 }
